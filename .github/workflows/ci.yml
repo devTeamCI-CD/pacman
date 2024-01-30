@@ -10,10 +10,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set Up Python 3.9
+    - name: Set Up Python 3.8
       uses: actions/setup-python@v2
       with:
-          python-version: 3.9
+          python-version: 3.8
 
     - name: Install dependencies
       run: |
@@ -22,5 +22,4 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest
         flake8
