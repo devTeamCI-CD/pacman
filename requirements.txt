@@ -5,3 +5,4 @@ flake8-variables-names==0.0.6
 pep8-naming==0.13.3
 pygame==2.5.2
 pytest==8.0.0
+black==24.1.1
