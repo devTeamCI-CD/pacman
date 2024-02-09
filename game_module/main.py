@@ -1,3 +1,4 @@
+import argparse
 import copy
 
 import pygame
@@ -32,10 +33,14 @@ from support.playable_variables import (
     PLAYING_KEYS,
     game_board,
 )
+def set_up():
+    args = argparse.ArgumentParser()
+    pygame.mixer.init()
+    pygame.init()
+    pygame.display.flip()
 
-pygame.mixer.init()
-pygame.init()
-pygame.display.flip()
+
+set_up()
 
 
 class Game:
@@ -1141,6 +1146,14 @@ game = Game(1, 0)
 ghost_safe_area = [15, 13]  # The location the ghosts escape to when attacked
 ghost_gate = [[15, 13], [15, 14]]
 
+
+def parse_arguments():
+    parser = argparse.ArgumentParser(description='CI/CD Pipeline')
+
+    parser.add_argument('--python-version', type=str, default='3.9',
+                        help='Specify the Python version to use')
+
+    return parser.parse_args()
 
 def can_move(row, col):
     if col == -1 or col == len(game_board[0]):
